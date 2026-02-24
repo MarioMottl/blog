@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block content %} {% set posts_section = get_section(path="posts/_index.md") %} {% set pages
+= posts_section.pages %}
+<section class="hero">
+    <div class="hero-main">
+        <div class="hero-label">VOL_01 // {{ now() | date(format="%Y") }}</div>
+        <h1>MARIO M.<br /><span class="accent">BLOG</span></h1>
+    </div>
+    <div class="hero-aside">
+        <p>
+            Notes on Rust, embedded systems, building compilers, dabbling in Zig - and occasionally wrangling legacy C++
+            codebases into shape.
+        </p>
+    </div>
+</section>
+
+<div class="tonal-break"></div>
+
+{% if pages %}
+<div class="section-header">
+    <h2>RECENT_ENTRIES</h2>
+    <span class="section-counter"
+        >{{ pages | length }} {% if pages | length == 1 %}RECORD{% else %}RECORDS{% endif %}</span
+    >
+</div>
+
+<ul class="post-list">
+    {% for page in pages %}
+    <li>
+        <div class="post-entry-label">
+            <span class="post-index"
+                >{% if loop.index < 10 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %} / LOG</span
+            >
+            {% if page.date %}
+            <span class="post-date-label"> {{ page.date | date(format="%Y.%m.%d") }} </span>
+            {% endif %}
+        </div>
+        <a class="post-title" href="{{ page.permalink }}">{{ page.title }}</a>
+        <div class="post-meta">
+            {% if page.date %}
+            <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">
+                {{ page.date | date(format="%B %d, %Y") }}
+            </time>
+            {% endif %} {% if config.extra.show_reading_time and page.reading_time %}
+            <span>{{ page.reading_time }} MIN_READ</span>
+            {% endif %}
+        </div>
+        {% if page.summary %}
+        <p class="post-summary">{{ page.summary | safe }}</p>
+        {% endif %} {% if page.taxonomies.tags is defined and page.taxonomies.tags | length > 0 %}
+        <div class="post-tags">
+            {% for tag in page.taxonomies.tags %}
+            <a class="tag" href="/tags/{{ tag | slugify }}">{{ tag | upper }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p class="empty-state">NO_RECORDS_FOUND // CHECK_BACK_SOON</p>
+{% endif %} {% endblock %}

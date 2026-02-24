@@ -1,0 +1,92 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: $font-size;
+  scroll-behavior: smooth;
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+body {
+  background: $bg;
+  color: $text;
+  font-family: $font-body;
+  line-height: $line-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" 1, "calt" 1;
+  min-height: 100dvh;
+}
+
+::selection {
+  background: $accent-container;
+  color: $accent;
+}
+
+::-moz-selection {
+  background: $accent-container;
+  color: $accent;
+}
+
+img, svg, video, canvas {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+code, pre, kbd, samp {
+  font-family: $font-mono;
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $surface-container-lowest;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $surface-container-high;
+
+  &:hover {
+    background: $outline;
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $surface-container-high $surface-container-lowest;
+}

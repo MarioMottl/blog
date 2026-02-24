@@ -1,0 +1,18 @@
+base_url = "https://yourdomain.com"
+title = "Mario M. Blog"
+description = "Notes on code, systems, and things I'm learning."
+default_language = "en"
+compile_sass = true
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+taxonomies = [
+  { name = "tags", feed = true },
+]
+
+[markdown.highlighting]
+theme = "curator-dark"
+extra_themes = ["syntax_themes/curator-dark.json"]
+
+[extra]
+show_reading_time = true

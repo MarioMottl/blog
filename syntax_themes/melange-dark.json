@@ -1,0 +1,174 @@
+{
+  "$schema": "vscode://schemas/color-theme",
+  "name": "melange-dark",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#292522",
+    "editor.foreground": "#ECE1D7"
+  },
+  "tokenColors": [
+    {
+      "name": "Default / Identifier",
+      "scope": ["source", "variable", "variable.other", "variable.other.readwrite"],
+      "settings": { "foreground": "#ECE1D7" }
+    },
+    {
+      "name": "Comment",
+      "scope": ["comment", "punctuation.definition.comment"],
+      "settings": { "foreground": "#C1A78E", "fontStyle": "italic" }
+    },
+    {
+      "name": "Statement - let, if, else, match, for, while, loop, return, where",
+      "scope": [
+        "keyword",
+        "keyword.control",
+        "keyword.control.rust",
+        "keyword.other",
+        "storage.modifier"
+      ],
+      "settings": { "foreground": "#E49B5D" }
+    },
+    {
+      "name": "PreProc - fn, use, mod (keyword.function / keyword.import)",
+      "scope": [
+        "storage.type.function",
+        "storage.type.function.rust",
+        "keyword.other.fn.rust",
+        "storage.type.module",
+        "keyword.other.crate",
+        "meta.use.rust"
+      ],
+      "settings": { "foreground": "#85B695" }
+    },
+    {
+      "name": "Type - struct, enum, trait, impl, type",
+      "scope": [
+        "storage.type",
+        "storage.type.struct",
+        "storage.type.enum",
+        "storage.type.trait"
+      ],
+      "settings": { "foreground": "#E49B5D" }
+    },
+    {
+      "name": "Type names - SomeType, i32, u64, str, bool",
+      "scope": [
+        "entity.name.type",
+        "entity.name.type.struct",
+        "entity.name.type.enum",
+        "entity.name.type.trait",
+        "entity.name.type.numeric",
+        "support.type",
+        "storage.type.primitive",
+        "support.type.primitive"
+      ],
+      "settings": { "foreground": "#7B9695" }
+    },
+    {
+      "name": "Function definition name",
+      "scope": [
+        "entity.name.function",
+        "entity.name.function.rust"
+      ],
+      "settings": { "foreground": "#EBC06D" }
+    },
+    {
+      "name": "Macro - println!, vec!, format!",
+      "scope": [
+        "entity.name.function.macro",
+        "entity.name.function.macro.rust",
+        "support.function.macro",
+        "meta.macro"
+      ],
+      "settings": { "foreground": "#EBC06D" }
+    },
+    {
+      "name": "String - italic blue, the Melange signature",
+      "scope": [
+        "string",
+        "string.quoted.double",
+        "string.quoted.single",
+        "string.quoted.double.rust"
+      ],
+      "settings": { "foreground": "#A3A9CE", "fontStyle": "italic" }
+    },
+    {
+      "name": "String escape sequences",
+      "scope": ["constant.character.escape"],
+      "settings": { "foreground": "#7F91B2" }
+    },
+    {
+      "name": "Format placeholders - {}, {:?}",
+      "scope": ["constant.other.placeholder", "meta.interpolation"],
+      "settings": { "foreground": "#7F91B2" }
+    },
+    {
+      "name": "Number",
+      "scope": ["constant.numeric"],
+      "settings": { "foreground": "#CF9BC2" }
+    },
+    {
+      "name": "Boolean - true, false",
+      "scope": ["constant.language"],
+      "settings": { "foreground": "#CF9BC2" }
+    },
+    {
+      "name": "Constant - SCREAMING_SNAKE",
+      "scope": ["variable.other.constant", "constant.other"],
+      "settings": { "foreground": "#B380B0" }
+    },
+    {
+      "name": "Operator",
+      "scope": ["keyword.operator"],
+      "settings": { "foreground": "#D47766" }
+    },
+    {
+      "name": "Delimiter / punctuation",
+      "scope": [
+        "punctuation.separator",
+        "punctuation.terminator",
+        "punctuation.accessor",
+        "punctuation.definition"
+      ],
+      "settings": { "foreground": "#BD8183" }
+    },
+    {
+      "name": "Brackets and braces",
+      "scope": [
+        "punctuation.section",
+        "punctuation.definition.bracket",
+        "punctuation.definition.group",
+        "meta.brace"
+      ],
+      "settings": { "foreground": "#8B7449" }
+    },
+    {
+      "name": "Lifetime - 'a, 'static",
+      "scope": [
+        "entity.name.lifetime",
+        "storage.modifier.lifetime",
+        "punctuation.definition.lifetime"
+      ],
+      "settings": { "foreground": "#E49B5D", "fontStyle": "italic" }
+    },
+    {
+      "name": "Attribute - #[derive], #[allow]",
+      "scope": [
+        "meta.attribute",
+        "meta.attribute.rust",
+        "entity.name.attribute"
+      ],
+      "settings": { "foreground": "#EBC06D" }
+    },
+    {
+      "name": "Self",
+      "scope": ["variable.language.self", "variable.language.this"],
+      "settings": { "foreground": "#E49B5D", "fontStyle": "italic" }
+    },
+    {
+      "name": "Module / namespace path segments",
+      "scope": ["entity.name.namespace", "entity.name.module", "meta.path"],
+      "settings": { "foreground": "#C1A78E" }
+    }
+  ]
+}
