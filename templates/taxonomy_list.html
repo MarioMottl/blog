@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Tags · {{ config.title }}{% endblock %} {% block content %}
+<div class="taxonomy-header">
+    <h2><span class="taxonomy-accent">#</span> TAGS_INDEX</h2>
+    <div class="taxonomy-count">
+        {{ terms | length }} {% if terms | length == 1 %}CLASSIFICATION{% else %}CLASSIFICATIONS{% endif %} FOUND
+    </div>
+</div>
+
+<div class="tonal-break"></div>
+
+{% if terms | length > 0 %}
+<ul class="tag-grid">
+    {% for term in terms %}
+    <li>
+        <a href="{{ term.permalink }}">
+            <span class="tag-name">#{{ term.name }}</span>
+            <span class="tag-count"
+                >{{ term.pages | length }} {% if term.pages | length == 1 %}RECORD{% else %}RECORDS{% endif %}</span
+            >
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p class="empty-state">NO_CLASSIFICATIONS_FOUND // ZERO_RECORDS</p>
+{% endif %} {% endblock %}

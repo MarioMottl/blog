@@ -1,0 +1,54 @@
+$bg: #0a0e14;
+$surface: #0a0e14;
+$surface-container-lowest: #090b10;
+$surface-container-low: #0e141c;
+$surface-container: #121a25;
+$surface-container-high: #16202e;
+$surface-container-highest: #1a2637;
+$surface-bright: #1e2d41;
+
+$text: #dce3f0;
+$text-heading: #dce3f0;
+$text-muted: #9facc1;
+$text-dimmed: #6a768a;
+
+$accent: #00e38a;
+$accent-dim: #00d380;
+$accent-container: #00522f;
+$on-accent: #004b2a;
+
+$secondary: #989ea8;
+$secondary-container: #363c44;
+
+$tertiary: #acffd9;
+$tertiary-dim: #77e6b9;
+
+$error: #ee7d77;
+$error-dim: #bb5551;
+
+$outline: #6a768a;
+$outline-variant: #3c495b;
+
+$bg-code: $surface-container-lowest;
+$bg-card: $surface-container-low;
+$border: $surface-container-high;
+$accent-hover: $accent-dim;
+$tag-bg: $accent-container;
+$tag-border: $accent-container;
+$tag-text: $accent;
+
+$font-body: 'Iosevka Custom', 'JetBrains Mono', 'Fira Code', monospace;
+$font-display: 'Departure Mono', 'Iosevka Custom', monospace;
+$font-mono: 'Iosevka Custom', 'JetBrains Mono', 'Fira Code', monospace;
+
+$content-width: 920px;
+$content-width-wide: 1400px;
+$line-height: 1.7;
+$font-size: 20px;
+
+$space-xs: 0.5rem;
+$space-sm: 1rem;
+$space-md: 2rem;
+$space-lg: 3rem;
+$space-xl: 4rem;
+$space-2xl: 6rem;

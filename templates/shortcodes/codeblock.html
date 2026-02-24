@@ -1,0 +1,4 @@
+<div class="codeblock-wrap" {%- if link %} data-link="{{ link }}" {% endif -%} {%- if link_label %}
+    data-link-label="{{ link_label }}" {% endif -%}>
+    {{ body | markdown | safe }}
+</div>

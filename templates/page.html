@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block title %}{{ page.title }} · {{ config.title }}{% endblock %} {% block description %}{%
+if page.summary %}{{ page.summary | striptags }}{% else %}{{ config.description }}{% endif %}{% endblock %} {% block
+content %}
+<article>
+    <header class="page-header">
+        <h1>{{ page.title }}</h1>
+    </header>
+    <div class="prose">{{ page.content | safe }}</div>
+</article>
+{% endblock %}

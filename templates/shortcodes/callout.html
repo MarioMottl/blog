@@ -1,0 +1,4 @@
+<div class="callout{% if type %} callout--{{ type }}{% endif %}">
+  {% if label %}<div class="callout-label">{{ label }}</div>{% endif %}
+  <div class="callout-body">{{ body | markdown | safe }}</div>
+</div>

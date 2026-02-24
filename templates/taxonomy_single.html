@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block title %}#{{ term.name }} · {{ config.title }}{% endblock %} {% block content %}
+<div class="taxonomy-header">
+    <h2><span class="taxonomy-accent">#</span> {{ term.name | upper }}</h2>
+    <div class="taxonomy-count">
+        {{ term.pages | length }} {% if term.pages | length == 1 %}RECORD{% else %}RECORDS{% endif %} FOUND
+    </div>
+</div>
+
+<div class="tonal-break"></div>
+
+{% if term.pages | length > 0 %}
+<ul class="post-list">
+    {% for page in term.pages %}
+    <li>
+        <div class="post-entry-label">
+            <span class="post-index"
+                >{% if loop.index < 10 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %} / LOG</span
+            >
+            {% if page.date %}
+            <span class="post-date-label"> {{ page.date | date(format="%Y.%m.%d") }} </span>
+            {% endif %}
+        </div>
+        <a class="post-title" href="{{ page.permalink }}">{{ page.title }}</a>
+        <div class="post-meta">
+            {% if page.date %}
+            <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">
+                {{ page.date | date(format="%B %d, %Y") | upper }}
+            </time>
+            {% endif %} {% if config.extra.show_reading_time and page.reading_time %}
+            <span>{{ page.reading_time }} MIN_READ</span>
+            {% endif %}
+        </div>
+        {% if page.summary %}
+        <p class="post-summary">{{ page.summary | safe }}</p>
+        {% endif %} {% if page.taxonomies.tags is defined and page.taxonomies.tags | length > 0 %}
+        <div class="post-tags">
+            {% for tag in page.taxonomies.tags %}
+            <a class="tag" href="/tags/{{ tag | slugify }}">{{ tag | upper }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p class="empty-state">NO_RECORDS_FOUND // ZERO_ENTRIES</p>
+{% endif %} {% endblock %}

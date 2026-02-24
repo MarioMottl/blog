@@ -1,0 +1,94 @@
+{% extends "base.html" %} {% block title %}{{ page.title }} · {{ config.title }}{% endblock %} {% block description %}{%
+if page.summary %}{{ page.summary | striptags }}{% else %}{{ config.description }}{% endif %}{% endblock %} {% block
+body %}
+<main class="article-layout">
+    <aside class="article-sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-label">METADATA</div>
+            {% if page.date %}
+            <div class="sidebar-value">{{ page.date | date(format="%Y.%m.%d") }}</div>
+            {% endif %} {% if config.extra.show_reading_time and page.reading_time %}
+            <div class="sidebar-value">{{ page.reading_time }} MIN_READ</div>
+            {% endif %}
+        </div>
+
+        {% if page.taxonomies.tags is defined and page.taxonomies.tags | length > 0 %}
+        <div class="sidebar-section">
+            <div class="sidebar-label">CLASSIFICATION</div>
+            <div class="sidebar-tags">
+                {% for tag in page.taxonomies.tags %}
+                <a class="tag" href="/tags/{{ tag | slugify }}">{{ tag | upper }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %} {% if page.toc | length > 0 %}
+        <div class="sidebar-section">
+            <div class="sidebar-label">ON THIS PAGE</div>
+            <nav class="sidebar-toc">
+                {% for h in page.toc %}
+                <a href="#{{ h.id }}">{{ h.title }}</a>
+                {% if h.children | length > 0 %} {% for child in h.children %}
+                <a href="#{{ child.id }}" style="padding-left: 0.75rem; font-size: 0.65rem">{{ child.title }}</a>
+                {% endfor %} {% endif %} {% endfor %}
+            </nav>
+        </div>
+        {% endif %}
+    </aside>
+
+    <article>
+        <header class="article-header">
+            <div class="article-header-line">
+                <span class="header-rule"></span>
+                <span class="header-label">ENTRY{% if page.date %} // {{ page.date | date(format="%Y.%m.%d") }}{% endif %}</span>
+            </div>
+            <h1>{{ page.title }}</h1>
+            {% if page.description %}
+            <p class="article-description">{{ page.description }}</p>
+            {% endif %}
+            <div class="article-meta">
+                {% if page.date %}
+                <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">
+                    {{ page.date | date(format="%B %d, %Y") | upper }}
+                </time>
+                {% endif %} {% if config.extra.show_reading_time and page.reading_time %}
+                <span>{{ page.reading_time }} MIN_READ</span>
+                {% endif %} {% for tag in page.taxonomies.tags | default(value=[]) %}
+                <a class="tag" href="/tags/{{ tag | slugify }}">{{ tag | upper }}</a>
+                {% endfor %}
+            </div>
+        </header>
+
+        {% if page.toc | length > 1 %}
+        <nav class="toc-block">
+            <div class="toc-block-label">Contents</div>
+            <ol class="toc-block-grid">
+                {% for h in page.toc %}
+                <li class="toc-block-item">
+                    <span class="toc-block-num">{% if loop.index < 10 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %}</span>
+                    <a class="toc-block-link" href="#{{ h.id }}">{{ h.title }}</a>
+                </li>
+                {% endfor %}
+            </ol>
+        </nav>
+        {% endif %}
+
+        <div class="prose">{{ page.content | safe }}</div>
+
+        <footer class="article-footer">
+            <div class="article-footer-nav">
+                {% if page.earlier %}
+                <div class="article-nav-item">
+                    <div class="nav-label">PREV_ENTRY</div>
+                    <a href="{{ page.earlier.permalink }}">{{ page.earlier.title }}</a>
+                </div>
+                {% endif %} {% if page.later %}
+                <div class="article-nav-item" style="text-align: right; margin-left: auto">
+                    <div class="nav-label">NEXT_ENTRY</div>
+                    <a href="{{ page.later.permalink }}">{{ page.later.title }}</a>
+                </div>
+                {% endif %}
+            </div>
+        </footer>
+    </article>
+</main>
+{% endblock %}
