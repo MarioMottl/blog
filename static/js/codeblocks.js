@@ -3,6 +3,7 @@
     var outerWrap = pre.closest('.codeblock-wrap');
     var link      = outerWrap ? outerWrap.dataset.link      : null;
     var linkLabel = outerWrap ? outerWrap.dataset.linkLabel : null;
+    var filename  = outerWrap ? outerWrap.dataset.filename  : null;
 
     var preWrap = document.createElement('div');
     preWrap.className = 'pre-wrap';
@@ -10,12 +11,12 @@
     preWrap.appendChild(pre);
 
     var codeEl = pre.querySelector('code');
-    var lang = (codeEl && codeEl.dataset.lang) || pre.dataset.lang;
-    if (lang) {
-      var langTag = document.createElement('span');
-      langTag.className = 'lang-tag';
-      langTag.textContent = lang;
-      preWrap.appendChild(langTag);
+
+    if (filename) {
+      var filenameBar = document.createElement('div');
+      filenameBar.className = 'code-filename';
+      filenameBar.textContent = filename;
+      preWrap.insertBefore(filenameBar, pre);
     }
 
     var actions = document.createElement('div');

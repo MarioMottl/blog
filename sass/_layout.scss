@@ -38,28 +38,46 @@
 
   .site-brand {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    align-items: baseline;
+    gap: 0.5rem;
     text-decoration: none;
-  }
-
-  .site-brand-icon {
-    color: $accent;
-    font-size: 1.5rem;
-  }
-
-  .site-title {
     font-family: $font-display;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    color: $accent;
-    text-decoration: none;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+  }
 
-    &:hover {
-      color: $accent;
-    }
+  .ps1-prefix {
+    color: $text-dimmed;
+    letter-spacing: 0.05em;
+  }
+
+  .ps1-at {
+    color: $text-dimmed;
+  }
+
+  .ps1-sep {
+    color: $text-dimmed;
+  }
+
+  .ps1-path {
+    color: $accent;
+  }
+
+  .ps1-dollar {
+    color: $accent;
+    letter-spacing: 0;
+  }
+
+  .site-cursor {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.1em;
+    background: $accent;
+    vertical-align: baseline;
+    position: relative;
+    top: 0.2em;
+    margin-left: 0.15em;
+    animation: blink 1s step-end infinite;
   }
 
   nav {
@@ -744,20 +762,18 @@
   }
 }
 
-.lang-tag {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-family: $font-mono;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: $text-dimmed;
-  padding: 0.35rem 0.75rem;
-  border-bottom: 1px solid $surface-container-high;
-  border-left: 1px solid $surface-container-high;
-  pointer-events: none;
+.code-filename {
+  display: inline-block;
+  font-family: $font-display;
+  font-size: 0.65rem;
+  color: $text-muted;
+  background: $surface-container-low;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid $surface-container-high;
+  letter-spacing: 0.04em;
+  margin-bottom: -1px;
 }
+
 
 .code-actions {
   position: absolute;
@@ -774,7 +790,7 @@
   align-items: center;
   padding: 0.25em 0.65em;
   font-size: 0.8rem;
-  font-family: $font-mono;
+  font-family: $font-display;
   line-height: 1.6;
   background: rgba($surface-container-lowest, 0.8);
   border: 1px solid rgba($outline-variant, 0.15);
@@ -1131,4 +1147,19 @@
 
 .technical-gutter {
   border-left: 1px solid rgba($outline-variant, 0.15);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.type-caret {
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  background: $accent;
+  vertical-align: -0.1em;
+  margin-left: 3px;
+  animation: blink 1s step-end infinite;
 }

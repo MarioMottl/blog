@@ -10,7 +10,7 @@ First post. Testing all available components.
 
 ## Code blocks
 
-Plain block with lang tag and copy button:
+Plain block with copy button:
 
 ```rust
 fn greet(name: &str) -> String {
@@ -21,6 +21,37 @@ fn main() {
     println!("{}", greet("world"));
 }
 ```
+
+Block with filename title:
+
+{% codeblock(filename="main.rs") %}
+```rust
+fn greet(name: &str) -> String {
+    format!("Hello, {}!", name)
+}
+{% end %}
+
+{% codeblock(filename="main.rs") %}
+```rust
+fn main() {
+    println!("{}", greet("world"));
+}
+```
+{% end %}
+
+Block with filename and godbolt link:
+
+{% codeblock(filename="main.rs", link="https://godbolt.org/z/Mxjhh8bzb", link_label="godbolt") %}
+```rust
+fn greet(name: &str) -> String {
+    format!("Hello, {}!", name)
+}
+
+fn main() {
+    println!("{}", greet("world"));
+}
+```
+{% end %}
 
 Block with external link button:
 
@@ -66,6 +97,8 @@ Salmon callout. Reserve for unsafe code, footguns, things that can go wrong badl
 
 ## Other languages
 
+
+{% codeblock(filename="main.zig") %}
 ```zig
 const std = @import("std");
 
@@ -74,7 +107,10 @@ pub fn main() void {
     std.debug.print("{s}\n", .{msg});
 }
 ```
+{% end %}
 
+
+{% codeblock(filename="main.c") %}
 ```c
 #include <stdio.h>
 
@@ -83,7 +119,9 @@ int main(void) {
     return 0;
 }
 ```
+{% end %}
 
+{% codeblock(filename="Cargo.toml") %}
 ```toml
 [package]
 name = "example"
@@ -93,6 +131,7 @@ edition = "2021"
 [dependencies]
 serde = { version = "1", features = ["derive"] }
 ```
+{% end %}
 
 {{ divider(n="03", label="COMPARISON TABLE") }}
 
